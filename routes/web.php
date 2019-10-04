@@ -18,13 +18,13 @@ $router->get('/', [
 ]);
 
 /* affichage du quiz avec ses réponses en GET */
-$router->get('/quiz/[id]', [
-    "as" => "quiz",
+$router->get('/quiz/{id:\d+}', [
+    "as" => "quiz_detail",
     "uses" => "QuizController@quiz"
 ]);
 
 /* traitement du formulaire du quiz soumis et affichage des bonnes réponses, scores, etc. en POST */
-$router->post('/quiz/[id]', [
+$router->post('/quiz/{id}', [
     "as" => "quiz_post",
     "uses" => "QuizController@quizPost"
 ]);
@@ -36,8 +36,8 @@ $router->get('/signup', [
 ]);
 
 /* Traitement du formulaire d'inscription en POST */
-$router->get('/signup', [
-    "as" => "signupPost",
+$router->post('/signup', [
+    "as" => "signup_post",
     "uses" => "UserController@signupPost"
 ]);
 
@@ -48,7 +48,7 @@ $router->get('/signin', [
 ]);
 
 /* Traitement du formulaire de connexion en POST */
-$router->get('/signin', [
+$router->post('/signin', [
     "as" => "signinPost",
     "uses" => "UserController@signinPost"
 ]);
@@ -72,7 +72,7 @@ $router->get('/tags', [
 ]);
 
 /* Liste des quiz pour le tag donné en GET */
-$router->get('/tags/[id]/quiz', [
-    "as" => "quiz",
+$router->get('/tags/{id}/quiz', [
+    "as" => "quizByTag",
     "uses" => "TagController@quiz"
 ]);

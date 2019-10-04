@@ -1,66 +1,27 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <!-- Reset CSS -->
-        <link href="./css/reset.css"  rel="stylesheet">
-        <!-- Really beautiful CSS -->
-        <link href="./css/style.css"  rel="stylesheet">
-        <title>O'Quiz</title>
-    </head>
-    <body>
-        <main class="container">
-            <nav>
-                <ul>
-                    <li>
-                        <a href="#">
-                        <h1>O'Quiz</h1>
-                        </a>
-                    </li>
-                </ul>
+<?= view("layout.header", ["title" => "Accueil"]); ?>
 
-                <ul>
-                    <li>
-                        <a href="#">
-                            <i></i>
-                            Accueil
-                        </a>
-                    </li>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h2 class="display-4">Bienvenue sur O'Quiz</h2>
+        <p class="lead">
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        </p>
+    </div>
+</div>
 
-                    <li>
-                        <a href="#">
-                            <i></i>
-                            Mon compte
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#">
-                            <i></i>
-                            Déconnexion
-                        </a>
-                    </li>
-
-                </ul>
-            </nav>
-
-            <div>
-                <h2> Bienvenue sur O'Quiz </h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-                </p>
+<div class="content">
+    <?php foreach($quizzes as $quiz) : ?>
+    
+        <div class="card">
+            <div class="card-header">
+                <h3><a href="<?=  route("quiz_detail", ["id" => $quiz->id]); ?>"><?= htmlentities($quiz->title); ?></a></h3>
             </div>
-
-            <div class="row">
-                <?php foreach($quizzes as $quiz) : ?>
-                <div class="col">
-                    <h3><?= $quiz->title; ?></h3>
-                    <h5><?= $quiz->description; ?></h5>
-                    <p>by author name</p>
-                </div>
-                <?php endforeach; ?>
+            <div class="card-body">
+                <h5 class="card-title"><?= htmlentities($quiz->description); ?></h5>
+                <p class="card-text"><?= htmlentities($quiz->author->firstname); ?> <?= htmlentities($quiz->author->lastname); ?></p>
             </div>
-        </main>
-    </body>
-</html>
+        </div>
+    <?php endforeach; ?>
+</div>
+
+<?= view("layout.footer"); ?>

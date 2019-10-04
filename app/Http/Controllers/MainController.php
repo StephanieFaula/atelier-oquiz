@@ -16,7 +16,10 @@ class MainController extends Controller
     public function home(Request $request)
     {
         $quizzes = Quizzes::all();
+
         //dd($quizzes);
+
         return view('home', ["quizzes" => $quizzes]);
     }
+
 }
