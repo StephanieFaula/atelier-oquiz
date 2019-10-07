@@ -26,9 +26,19 @@
                 <nav class="navbar navbar-light bg-light navbar-expand-lg d-flex justify-content-end">
                 <a class="navbar-brand mb-0 h1" href="<?= route("home") ?>">Accueil</a>
                 <a class="navbar-brand mb-0 h1" href="<?= route("tags") ?>">Sujets des Quizs</a>
-                <a class="navbar-brand" href="<?= route("signin") ?>">Mon compte</a>
-                <a class="navbar-brand" href="<?= route("signup") ?>">M'inscrire</a>
-                <a class="navbar-brand" href="#">Déconnexion</a>
+
+                <?php if (!$connectedUser): ?>
+
+                    <a class="navbar-brand" href="<?= route("signup") ?>">M'inscrire</a>
+                    <a class="navbar-brand" href="<?= route("signin") ?>">Mon compte</a>
+
+                <?php else: ?>
+
+                    <a class="navbar-brand" href="<?= route("logout") ?>">
+                        Déconnexion (<?= $connectedUser->firstname ?>)
+                    </a>
+                <?php endif; ?>
+                
                 </nav>
 
         </header>

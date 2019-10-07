@@ -2,6 +2,10 @@
 
 require_once __DIR__.'/../vendor/autoload.php';
 
+//on démarre la session, juste après l'autoload !important!
+//sinon, PHP ne connait pas nos définitions de class ! 
+session_start();
+
 (new Laravel\Lumen\Bootstrap\LoadEnvironmentVariables(
     dirname(__DIR__)
 ))->bootstrap();
