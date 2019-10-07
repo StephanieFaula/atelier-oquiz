@@ -7,17 +7,15 @@
     </div>
 
     <div class="content">
-        <?php //dd($quiz);?>
+        
     <?php foreach ($quiz->questions as $question): ?>
-    <?php // dd($question); ?>
-
-    
     
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title"><?= $question->question; ?></h5>
                 <p class="card-text"><?= $question->anecdote; ?></p>
                 <p><?= $question->created_at; ?></p>
+                <p><?= $question->level->name; ?></p>
             </div>
         </div>
     

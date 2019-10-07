@@ -3,12 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Quizzes;
-use App\Models\Levels;
-
-//faire bien gaffe à utiliser celui-ci et pas un autre !!!
-use Illuminate\Http\Request;
-
-use Illuminate\Support\Facades\DB;
 
 class QuizController extends Controller
 {
@@ -19,12 +13,9 @@ class QuizController extends Controller
 
         return view("quiz", [
             "quiz" => $quiz,
-            "id" => $id 
         ]);
     }
 
-    public function level(int $levelId)
-    {
-        $level = Level::findOrFail($levelId);
-    }
+
+
 }

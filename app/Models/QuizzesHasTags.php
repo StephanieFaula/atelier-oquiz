@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class QuizzesHasTags extends Model 
 {
-
+    protected $table = "quizzes_has_tags";
 }

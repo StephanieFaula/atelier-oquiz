@@ -6,8 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Levels extends Model 
 {
-    public function level() 
+    protected $table = "levels";
+
+    public function questions()
     {
-        return $this->hasMany("App\Models\Questions", "level_id");
+        return $this->hasMany("App\Models\Questions");
     }
 }

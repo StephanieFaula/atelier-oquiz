@@ -44,6 +44,10 @@ a:link {
     margin-bottom: 30px;
 }
 
+.card-tag {
+    width: 45%;
+}
+
 .question {
     margin: 0.625rem 1.25rem;
 }

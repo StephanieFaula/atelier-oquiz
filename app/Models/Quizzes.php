@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Quizzes extends Model 
 {
+    protected $table = "quizzes";
     // La fonction porte le nom de la propriété que l'on souhaite créer
     public function author()
     {
