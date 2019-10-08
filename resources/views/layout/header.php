@@ -30,13 +30,11 @@
                 <?php if (!$connectedUser): ?>
 
                     <a class="navbar-brand" href="<?= route("signup") ?>">M'inscrire</a>
-                    <a class="navbar-brand" href="<?= route("signin") ?>">Mon compte</a>
+                    <a class="navbar-brand" href="<?= route("signin") ?>">Connexion</a>
 
                 <?php else: ?>
-
-                    <a class="navbar-brand" href="<?= route("logout") ?>">
-                        Déconnexion (<?= $connectedUser->firstname ?>)
-                    </a>
+                    <a class="navbar-brand" href="<?= route("profile") ?>">Mon compte</a>
+                    <a class="navbar-brand" href="<?= route("logout") ?>">Déconnexion (<?= $connectedUser->firstname ?>)</a>
                 <?php endif; ?>
                 
                 </nav>

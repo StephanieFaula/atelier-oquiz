@@ -179,16 +179,23 @@ class UserController extends Controller
 
     }
 
-        /* traite la déconnexion */
-        public function logout()
-        {
-            UserSession::disconnect();
-    
-            //affiche le message après la redirection
-            Flash::create("Vous êtes déconnecté !", "success");
-    
-            //redirige 
-            return redirect()->route("signin");
-        }
+    public function profile()
+    {
+        //$connectedUser = UserSession::SESSION_INDEX_NAME;
+
+        return view("profile");
+    }
+
+    /* traite la déconnexion */
+    public function logout()
+    {
+        UserSession::disconnect();
+
+        //affiche le message après la redirection
+        Flash::create("Vous êtes déconnecté !", "success");
+
+        //redirige 
+        return redirect()->route("signin");
+    }
 
 }

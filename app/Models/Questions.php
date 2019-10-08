@@ -22,4 +22,9 @@ class Questions extends Model
         return $this->belongsTo("App\Models\Levels", "levels_id");
     }
 
+    public function reponse()
+    {
+        return $this->belongsTo("App\Models\Answers", "answers_id");
+    }
+
 }
